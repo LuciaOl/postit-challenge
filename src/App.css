@@ -10,20 +10,7 @@ body {
 }
 
 
-.App-logo {
-  height: 20vmin;
-  pointer-events: none;
-  width: 350px;
-  height: 300px;
-  margin: 0px;
-}
 
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 60s linear;
-  }
-}
 
 .App-header {
   min-height: 100vh;
@@ -47,4 +34,12 @@ body {
   50%  { transform: scale(1,1)    translateY(0); }
   100% { transform: scale(1,1)    translateY(0); }
   
+}
+
+.board-button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 200px;
+    height: 150px;
+    margin: 20px;
 }

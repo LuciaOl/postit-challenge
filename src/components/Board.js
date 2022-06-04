@@ -1,70 +1,84 @@
-import './Board.css'
-import { useState, useReducer } from 'react';
-import { v4 as uuid } from 'uuid';
+import { nanoid } from 'nanoid';
+import { useEffect, useState} from 'react';
+import Search from './Search';
+import DarkMode from './DarkMode';
+import PostItList from './Post-It/PostItList';
 
-const initialPostitState = {
-    lastPostitCreated: null,
-    totalPostits: 0,
-    postits: [],
-};
-
-const postitiReducer = (prevState, action) => {
-    switch(action.type) {
-        case 'ADD_POSTIT': {
-            const newState = {
-                lastPostitCreated: new Date().toTimeString().slice(0, 8),
-                totalPostits: prevState.postits.length + 1,
-                notes: [...prevState.postits, action.payload],
-            };
-
-            return newState;
-        }
-    }
-};
 
 function Board() {
-    const [postitInput, setPostitInput] = useState('');
-    const [postitState, dispatch] = useReducer(postitiReducer, initialPostitState);
-    
-    const addNote = event => {
-        event.preventDefault();
 
-        if(!postitInput) {
-            return;
+    const [postits, setPostit] = useState([{
+        id: nanoid(),
+        text: "",
+        date: "",
+    }
+    ]); 
+
+    const [searchText, setSearchText] = useState('');
+
+    const [darkMode, setDarkMode] = useState(false);
+
+    const [ toBin, setToBin] = useState([]);
+
+
+    useState(()=> {
+       const savedPostits = JSON.parse(
+           localStorage.getItem('react-postit-app-data')
+       );
+
+       if(savedPostits) {
+           setPostit(savedPostits);
+       }
+    }, []);
+
+
+    useEffect(()=> {
+        localStorage.setItem(
+            'react-postit-app-data', 
+            JSON.stringify(postits)
+        );
+    }, [postits,]);
+
+    
+
+    const addPostit = (texts) => {
+        const date = new Date();
+        const newPost = {
+            id: nanoid(),
+            text: texts,
+            date: date.toLocaleDateString()
         }
-
-        const newPostit = {
-            id: uuid(), 
-            tect: postitInput,
-            rotate: Math.floor(Math.random() * 20), 
-        };
-
-        dispatch({ type: 'ADD_POSTIT', payload: newPostit });
+        const newPosts = [...postits, newPost];
+        setPostit(newPosts);
     };
-    
+
+
+    const deletePostit = (postit) => {
+        const newBin = [...toBin, postit];
+        setToBin(newBin);
+        const newPostits = [...postits];
+        const index = postits.findIndex((item)=> item.id === postit.id);
+        newPostits.splice(index, 1);
+        setPostit(newPostits);
+   
+    };
+
+
     return(
-        <div className='board'>
-            <form onSubmit={addNote} className="post-it">
-
-                <textarea 
-                    value={postitInput} 
-                    onChange={event => setPostitInput(event.target.value)} 
-                    placeholder='Create new postit...'
-                ></textarea>
-
-                <button>Add</button>
-
-            </form>
-
-            {postitState
-                    .postits
-                    .map((postit) => 
-                        <div key={postit} className='post-it'>
-                            <pre className='text'>{postit.text}</pre>
-                        </div>
-                    )
-            }
+        <div className={`${darkMode && 'dark-mode'}`}>               
+            <div className='container'>
+                <DarkMode handleDarkMode={setDarkMode} />
+                <Search handleSearch={setSearchText} />
+                <PostItList 
+                    postits={postits.filter((postit)=> 
+                        postit.text.toLowerCase().includes(searchText))
+                    } 
+                    handleAdd={addPostit} 
+                    handleDelete={deletePostit}
+                />
+            </div>
         </div>
+        
     )
 }
 

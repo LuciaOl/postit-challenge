@@ -2,7 +2,7 @@ import { BrowserRouter , Routes, Route} from "react-router-dom";
 import App from "../App";
 import Board from "./Board"
 import Navbar from "./Navbar";
-import PostItItem from "./PostItItem";
+import Bin from './Bin';
 
 
 const Root = () => {
@@ -12,7 +12,7 @@ const Root = () => {
             <Routes>
                 <Route path='/' element={<App />}></Route>
                 <Route path='/board' element={<Board />}></Route>
-                <Route path='/board/new' element={<PostItItem />}> </Route>
+                <Route path='/bin' element={<Bin />}> </Route>
             </Routes>
         </BrowserRouter>
     )

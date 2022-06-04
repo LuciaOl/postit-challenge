@@ -1,8 +1,11 @@
 import "./App.css";
+import Board from "./components/Board";
+import { Link } from "react-router-dom"
 
 
-function App() {
-	
+
+function App( ) {
+
 	return (
 		<div className="App">
 			<header className="App-header">
@@ -10,8 +13,12 @@ function App() {
 				<p>
 					The App where you can organize your work
 				</p>
+				<button className="board-button" onClick={Board}>
+					<nav>
+						<Link to="/board" class="text-sm" >My Board</Link>
+					</nav>
+				</button>
 			</header>
-			
 		</div>
 	);
 }
