@@ -2,7 +2,6 @@
 const DarkMode = ({ handleDarkMode }) => {
     return (
         <div className="dark">
-            <h1>My Post-it</h1>
             <button 
                 onClick={()=> 
                     handleDarkMode(

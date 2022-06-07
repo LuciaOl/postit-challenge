@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addPostit } from '../../reducers/rootReducer';
 
-const NewPostIt = ({ id, handleAdd, handleDelete }) => {
+const NewPostIt = ({ id, handleAdd }) => {
 
     const [postitText, setPostitText] = useState('');
 
