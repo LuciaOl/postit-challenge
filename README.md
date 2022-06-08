@@ -9,6 +9,9 @@ You can also edit, delete and restore them from the bin.
  - Board features: Create, Edit, Delete and Search
  - Bin features: Delete, Restore and Search
 
+# Demo
+You can see a running version of the application at https://posti-it.herokuapp.com/
+
 # Screenshots
 
  HOME:
@@ -37,26 +40,4 @@ You can also edit, delete and restore them from the bin.
 # Usage
 
     npm start
-
-
-
-
-
-
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
