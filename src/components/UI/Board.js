@@ -8,7 +8,7 @@ import PostItList from '../Post-It/PostItList';
 
 
 
-function Board({ postits , handleAdd, handleDelete, handlRestore, toShow }) {
+function Board({ postits , handleAdd, handleDelete, handleRestore, toShow }) {
 
     
     const [searchText, setSearchText] = useState('');
@@ -33,7 +33,7 @@ function Board({ postits , handleAdd, handleDelete, handlRestore, toShow }) {
                             }
                             handleAdd={handleAdd}
                             handleDelete={handleDelete}
-                            handlRestore={handlRestore}
+                            handleRestore={handleRestore}
                             toShow={toShow}
                         />
                     </main>

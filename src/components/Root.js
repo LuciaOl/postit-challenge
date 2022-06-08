@@ -100,7 +100,7 @@ const Root = () => {
                         postits={itemsBin} 
                         toShow={false} 
                         handleAdd={addPostit}
-                        handlRestore={restorePostit} 
+                        handleRestore={restorePostit} 
                         handleDelete={permanentDelete} />
                 }> 
                 </Route>

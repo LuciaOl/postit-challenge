@@ -18,9 +18,11 @@ const PostItItem = ({ id, text, date, handleDelete, handleRestore, toShow }) => 
                     />
                     {!toShow && 
                     <button 
-                        onClick={() => handleRestore(id)} 
                         className='delete-icon'
-                    >Restore</button>}
+                        onClick={() => handleRestore(id)} 
+                    >
+                        Restore
+                    </button>}
                 </div>
             </div>
         
