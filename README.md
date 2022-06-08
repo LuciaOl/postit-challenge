@@ -1,15 +1,24 @@
 # Overview
 
-Post-it is a app where you can organice your work by creating post-it notes.
+Post-it is a app where you can organize your work by creating post-it notes.
 You can also edit, delete and restore them from the bin.
 
 # Features
- - Tree-page React Application
- - Home features: go to Board
- - Board features: Create, Edit, Delete and Search
- - Bin features: Delete, Restore and Search
+
+    - Tree-page React Application with CSS
+    - Home features: go to Board
+    - Board features: Create, Edit, Delete and Search
+    - Bin features: Delete, Restore and Search
+
+# To improve and add on the next update:
+
+    - Use of Tailwind
+    - Responsive Design
+    - Improve Dark Mode
+    - Unit Tests
 
 # Demo
+
 You can see a running version of the application at https://posti-it.herokuapp.com/
 
 # Screenshots
