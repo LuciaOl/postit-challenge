@@ -5,7 +5,7 @@ You can also edit, delete and restore them from the bin.
 
 # Features
 
-    - Tree-page React Application with CSS
+    - Three-page React Application with CSS
     - Home features: go to Board
     - Board features: Create, Edit, Delete and Search
     - Bin features: Delete, Restore and Search
